@@ -1,0 +1,12 @@
+{% extends "base.html" %} {% block content %}
+<h1>{{ question.question }}</h1>
+<form method="POST" action="{{ url_for('handle_answer', qid=qid) }}">
+  {% for choice in question.choices %}
+  <div>
+    <input type="radio" id="{{ choice }}" name="answer" value="{{ choice }}" />
+    <label for="{{ choice }}">{{ choice }}</label>
+  </div>
+  {% endfor %}
+  <button type="submit">Submit</button>
+</form>
+{% endblock %}
